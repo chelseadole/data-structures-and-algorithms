@@ -25,8 +25,7 @@ if __name__ == '__main__':
 
     try:
         if len(sys.argv) > 1:
-            input_list = sys.argv[1].split()
-            input_list = [int(i) for i in input_list]
+            input_list = [int(i) for i in sys.argv[1].split()]
         else:
             input_list = [3, 5, 2, 10, 22, 4, 23]
 
