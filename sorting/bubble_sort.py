@@ -9,7 +9,8 @@ NOTES:
 
 """
 
-import sys, ast
+import sys
+
 
 def bubble_sort(lst):
     """Sort list by using BubbleSort algorithm."""
