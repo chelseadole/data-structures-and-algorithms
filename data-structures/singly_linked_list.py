@@ -24,7 +24,7 @@ class LinkedList:
 
     def insert(self, data):
         """Insert a node into a linked list."""
-        new_node = Node(data, self.head, None)
+        new_node = Node(data, self.head)
         if not self.head:
             self.tail = new_node
         self.head = new_node
@@ -44,20 +44,3 @@ class LinkedList:
                 return curr, iters
             curr = curr.next
         return curr
-
-    def delete(self, val):
-        """Check to see if Node is in List. If it is, delete it."""
-        prev = None
-        curr = self.head
-        while curr:
-            if curr.value == val:
-                if prev:
-                    prev.next = curr.next
-                    return 'Deleted {}'.format(val)
-            prev = curr
-            curr = curr.next
-        return '{} not found in LinkedList'.format(val)
-
-
-
-
