@@ -22,27 +22,17 @@ def bubble_sort(lst):
 
 
 if __name__ == '__main__':
+    """Print input, timeit, and output of sorting algorithm."""
     import timeit as ti
-
+    input_list = [3, 5, 2, 10, 22, 4, 23]
     try:
         if len(sys.argv) > 1:
-            input_list = [int(i) for i in sys.argv[1].split()]
-        else:
-            input_list = [3, 5, 2, 10, 22, 4, 23]
-
-        original_list = input_list.copy()
-
+            input_list = [int(i) for i in sys.argv[1::]]
+        original_list = input_list[:]
         print('Sorting array...')
-        sort_time = ti.timeit("bubble_sort(input_list)",
-                              setup="from __main__ import input_list, bubble_sort")
+        sort_time = ti.timeit("bubble_sort(input_list)", setup="from __main__ import bubble_sort, input_list")
 
-        print(f"""
-            BubbleSort! 
-            
-            Input: {original_list}
-            Sort time: {sort_time} secs
-            Output: {input_list}
-            
-        """)
+        print("BubbleSort! \nInput: {} \nSort time: {} secs \nOutput: {}".format(original_list, sort_time, input_list))
+
     except:
-        print("""Input numbers to sort must be formatted as a string of separated numbers. \nExample: \n$ python bubble_sort.py '1 2 3 4 5'""")
+        print("""Input numbers must be formatted as separated numbers. \nExample: \n$ python bubble_sort.py 1 2 3 4 5""")
