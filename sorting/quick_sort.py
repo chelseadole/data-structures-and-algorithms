@@ -8,21 +8,14 @@ then Quicksorted again. This repeats until each "section" has length of 1.
 """
 
 
-def _partition(lst, beg_idx, end_idx):
-    """Recursively QuickSort section."""
-    if len(lst) > 0:
-        pivot = beg_idx
-        while beg_idx < end_idx:
-            while lst[beg_idx] < pivot:
-                beg_idx += 1
-            while lst[end_idx] > pivot:
-                end_idx -= 1
-            lst[beg_idx], lst[end_idx] = lst[end_idx], lst[beg_idx]
+def quick_sort(lst):
+    """Create a sorted copy of the given list using quick sort."""
+    if len(lst) <= 1:
+        return lst
 
-        _partition(lst, beg_idx, split - 1)
-        _partition(lst, split + 1, end_idx)
+    pivot = lst[0]
 
+    left = [x for x in lst[1:] if x <= pivot]
+    right = [x for x in lst[1:] if x > pivot]
 
-def quicksort(lst):
-    """Quicksort algorithm."""
-    return _partition(lst, 0, len(lst) - 1)
+    return quick_sort(left) + [pivot] + quick_sort(right)
