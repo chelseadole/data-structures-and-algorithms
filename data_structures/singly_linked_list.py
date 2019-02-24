@@ -71,11 +71,11 @@ class LinkedList:
                 return curr
             curr, prev = curr.next, curr
 
-    def hash_search(self, val):
+    def hash_search(self, key):
         """"Search specially implemented for HashTable. Searches with assumption that val is a list."""
         curr = self.head
         while curr:
-            if curr.value[0] == val:
+            if curr.value[0] == key:
                 return curr.value[1]
             curr = curr.next
         return curr

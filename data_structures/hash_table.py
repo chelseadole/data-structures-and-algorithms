@@ -18,7 +18,7 @@ class HashTable:
             self.size = size
             self.hash_table = [LinkedList()] * self.size
         else:
-            raise ValueError("HashTable requires paramater \"size\" of type \"int\"")
+            raise ValueError("HashTable requires parameter \"size\" of type \"int\"")
 
     def _compress(self, key):
         """Compress a key into a compressed hashed index value between 0 and self.size,
