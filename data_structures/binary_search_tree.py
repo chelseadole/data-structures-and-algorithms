@@ -18,28 +18,13 @@ class BST:
         """Initialization of BST."""
         self.root = root
 
-    def insert(self, data):
+    def insert(self, root, data):
         """Insert a value node into the BST."""
-        if self.root is None:
-            self.root = Node(data)
-            return self.root
-        elif data < self.root.value:
-            self.root = self.insert(data, node.left)
+        if root is None:
+            return Node(data)
         else:
-            node.right = self.insert(data, node.right)
-
-
-def insert(root, data):
-    node = Node(data)
-    if root is None:
-        root = node
-    elif root.data >= data:
-        if root.left is None:
-            root.left = node
-        else:
-            insert(root.left, data)
-    else:
-        if root.right is None:
-            root.right = node
-        else:
-            insert(root.right, data)
+            if data < self.curr.value:
+                root.left = self.insert(root.left, data)
+            else:
+                root.right = self.insert(root.right, data)
+            return root
