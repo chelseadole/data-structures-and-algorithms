@@ -14,17 +14,23 @@ class Node:
 class BST:
     """Binary Search Tree."""
 
-    def __init__(self, root=None):
+    def __init__(self, val):
         """Initialization of BST."""
-        self.root = root
+        self.root = Node(val)
 
-    def insert(self, root, data):
-        """Insert a value node into the BST."""
-        if root is None:
-            return Node(data)
-        else:
-            if data < self.curr.value:
-                root.left = self.insert(root.left, data)
+    def insert(self, value):
+        """Insert a node value into the BST."""
+        curr = self.root
+        while curr:
+            if value < curr.value:
+                if curr.left is None:
+                    curr.left = Node(value)
+                    break
+                else:
+                    curr = curr.left
             else:
-                root.right = self.insert(root.right, data)
-            return root
+                if curr.right is None:
+                    curr.right = Node(value)
+                    break
+                else:
+                    curr = curr.right
