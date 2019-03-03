@@ -28,9 +28,23 @@ class BST:
                     break
                 else:
                     curr = curr.left
-            else:
+            elif value > curr.value:
                 if curr.right is None:
                     curr.right = Node(value)
                     break
                 else:
                     curr = curr.right
+            else:
+                break
+
+    def search(self, value):
+        """Search to see if a value is in BST."""
+        curr = self.root
+        while curr:
+            if value == curr.value:
+                return "VALUE: {} in BST".format(value)
+            elif value < curr.value:
+                curr = curr.left
+            else:
+                curr = curr.right
+        return "VALUE {} not in BST".format(value)
